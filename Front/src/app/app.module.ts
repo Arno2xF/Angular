@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { DEFAULT_CURRENCY_CODE, LOCALE_ID, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -6,6 +6,12 @@ import { AppComponent } from './app.component';
 import { LayoutModule } from './layout/layout.module';
 import { HomeComponent } from './Routes/home/home.component';
 import { LegalComponent } from './Routes/legal/legal.component';
+
+
+import { CurrencyPipe, registerLocaleData } from '@angular/common';
+import localeFr from '@angular/common/locales/fr'
+
+registerLocaleData(localeFr, 'fr');
 
 @NgModule({
   declarations: [
@@ -18,7 +24,10 @@ import { LegalComponent } from './Routes/legal/legal.component';
     AppRoutingModule,
     LayoutModule
   ],
-  providers: [],
+  providers: [
+    {provide: LOCALE_ID, useValue: 'fr'},
+    {provide: DEFAULT_CURRENCY_CODE, useValue: 'EUR'}
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
