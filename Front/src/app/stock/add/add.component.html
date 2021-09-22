@@ -1,18 +1,20 @@
 <main>
   <h1>Ajout d'un article</h1>
-  <form>
+  <form [formGroup]="f">
     <label>
       <div>Nom</div>
-      <input type="text" />
+      <input formControlName="name" type="text" />
     </label>
     <label>
       <div>Prix</div>
-      <input type="number" />
+      <input formControlName="price" type="number" step="0.01" min="0" />
     </label>
     <label>
       <div>Quantité</div>
-      <input type="number" />
+      <input formControlName="qty" type="number" step="1" min="0" />
     </label>
     <button class="primary">Ajouter</button>
   </form>
+
+  <!--{{ f.value | json }}-->
 </main>
