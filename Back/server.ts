@@ -9,7 +9,7 @@ import { timeStamp } from "console";
 const app = express();
 const port = 3000;
 const dir = "../front/dist/front";
-const articles: Article[] = [
+let articles: Article[] = [
   {
     id: "A1",
     name: "xTournevis",
@@ -53,6 +53,13 @@ app.post("/api/articles", (req, res) => {
   article.id = generateId();
   articles.push(article);
   res.status(201).json(article);
+});
+
+app.delete("/api/articles", (req, res) => {
+  const ids = req.body as string[];
+  console.log(ids);
+  //articles = articles.filter((a) => ids.includes(a.id));
+  res.status(204).end();
 });
 
 // app.get("/", (req, res) => {
