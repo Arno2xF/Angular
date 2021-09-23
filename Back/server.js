@@ -5,6 +5,7 @@ const serveIndex = require("serve-index");
 
 const app = express();
 const port = 3000;
+const dir = "../front/dist/front";
 
 app.use((req, res, next) => {
   console.log("url:", req.url);
@@ -15,7 +16,7 @@ app.use((req, res, next) => {
 //   res.send("Hello World!");
 // });
 
-app.use(express.static("."));
+app.use(express.static(dir));
 app.use(serveIndex(".", { icons: true }));
 
 app.listen(port, () => {
