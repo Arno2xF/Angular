@@ -10,22 +10,22 @@ const port = 3000;
 const dir = "../front/dist/front";
 const articles: Article[] = [
   {
-    name: "Tournevis",
+    name: "xTournevis",
     price: 2.99,
     qty: 120,
   },
   {
-    name: "Marteau",
+    name: "xMarteau",
     price: 7.9,
     qty: 45,
   },
   {
-    name: "Perceuse",
+    name: "xPerceuse",
     price: 25.99,
     qty: 180,
   },
   {
-    name: "Pelle",
+    name: "xPelle",
     price: 15.0,
     qty: 7,
   },
