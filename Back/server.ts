@@ -1,11 +1,14 @@
 console.log("Start Server");
 
 import express from "Express";
-import serveIndex  from "serve-index";
+import serveIndex from "serve-index";
+import cors from "cors";
 
 const app = express();
 const port = 3000;
 const dir = "../front/dist/front";
+
+app.use(cors());
 
 app.use((req, res, next) => {
   console.log("url:", req.url);
