@@ -2,12 +2,12 @@ import { Injectable } from '@angular/core';
 import { Article } from '../interfaces/article';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class ArticleService {
   public articles!: Article[];
 
-  constructor() { 
+  constructor() {
     this.load();
   }
 
@@ -16,34 +16,14 @@ export class ArticleService {
     this.save();
   }
 
-  public load() {
-    const str = localStorage.getItem("articles");
-    if (!str) {
-      this.articles = [
-        {
-          name: 'Tournevis', price: 2.99, qty: 120
-        },
-        {
-          name: 'Marteau', price: 7.90, qty: 45
-        },
-        {
-          name: 'Perceuse', price: 25.99, qty: 180
-        },
-        {
-          name: 'Pelle', price: 15.00, qty: 7
-        }
-      ];
-      return;
-    }
-    this.articles = JSON.parse(str);
-  }
+  public load() {}
 
   public remove(selectedArticles: Set<Article>) {
-    this.articles = this.articles.filter(a => !selectedArticles.has(a));
+    this.articles = this.articles.filter((a) => !selectedArticles.has(a));
     this.save();
   }
 
   public save() {
-    localStorage.setItem("articles", JSON.stringify(this.articles));
+    localStorage.setItem('articles', JSON.stringify(this.articles));
   }
 }
