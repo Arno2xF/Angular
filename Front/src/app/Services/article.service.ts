@@ -38,6 +38,11 @@ export class ArticleService {
     this.articles = JSON.parse(str);
   }
 
+  public remove(selectedArticles: Set<Article>) {
+    this.articles = this.articles.filter(a => !selectedArticles.has(a));
+    this.save();
+  }
+
   public save() {
     localStorage.setItem("articles", JSON.stringify(this.articles));
   }
