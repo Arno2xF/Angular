@@ -58,7 +58,7 @@ app.post("/api/articles", (req, res) => {
 app.delete("/api/articles", (req, res) => {
   const ids = req.body as string[];
   console.log(ids);
-  //articles = articles.filter((a) => ids.includes(a.id));
+  articles = articles.filter((a) => !ids.includes(a.id));
   res.status(204).end();
 });
 

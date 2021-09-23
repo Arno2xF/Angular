@@ -58,11 +58,11 @@ export class HttpArticleService extends ArticleService {
         body: JSON.stringify(ids),
       })
       .subscribe({
-        next: (articles) => {
-          console.log('Success');
+        next: () => {
+          console.log('Delete Success');
         },
         complete: () => {
-          console.log('complete');
+          console.log('Delete complete');
         },
         error: (err) => {
           console.log('err: ', err);
