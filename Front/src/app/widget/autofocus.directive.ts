@@ -1,13 +1,18 @@
-import { Directive, OnDestroy } from '@angular/core';
+import { Directive, ElementRef, OnDestroy, OnInit } from '@angular/core';
 
 @Directive({
   selector: '[appAutofocus]',
 })
-export class AutofocusDirective implements OnDestroy {
-  constructor() {
+export class AutofocusDirective implements OnDestroy, OnInit {
+  constructor(private elt: ElementRef<HTMLInputElement>) {
     console.log('Directive autofocus instanciated');
   }
-  ngOnDestroy(): void {
+
+  public ngOnDestroy(): void {
     console.log('Destroy Directive Autofocus');
+  }
+
+  public ngOnInit(): void {
+    this.elt.nativeElement.select();
   }
 }
