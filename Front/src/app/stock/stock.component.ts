@@ -24,13 +24,5 @@ export class StockComponent implements OnInit {
     this.selectedArticles.clear();
   }
 
-  public toggle(a: Article) {
-    console.log('Toggle', a);
-    if (this.selectedArticles.has(a)) {
-      this.selectedArticles.delete(a);
-      return;
-    }
-
-    this.selectedArticles.add(a);
-  }
+  setSelectedArticle(selectedArticles: aaa) {}
 }
